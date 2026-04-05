@@ -1,0 +1,223 @@
+﻿<!-- Specificăm standardul HTML5 -->
+<!DOCTYPE html>
+
+<!-- Deschidem documentul HTML și stabilim limba română -->
+<html lang="ro">
+  <!-- Secțiunea declarativă cu titlu și metainformații -->
+  <head>
+    <!-- Unicode pentru diacritice -->
+    <meta charset="utf-8">
+    <!-- Pentru ca site-ul să fie responsiv pe dispozitivele mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Stabilirea titlului documentului -->
+    <title>JavaScript Elemente Dinamice</title>
+    <!-- Specificăm Style sheet-ul (CSS) extern cu link-ul către fișierul CSS -->
+    <link href="style.css" rel="stylesheet">
+  </head>
+
+  <!-- Secțiunea corpului conținutului -->
+  <body>
+    <br>&nbsp;&nbsp;&nbsp;
+    <!-- Meniu derulant (JS) -->
+    <div class="dropdown">
+      <!-- Butonul cu handler-ul de evenimente onClick ce execută funcția specificată -->
+      <button onclick="toggleDropdown()" class="dropbtn">Meniu derulant</button>
+      <div id="myDropdown" class="dropdown-content">
+        <ul type="none">
+          <li><a href="#">Opțiunea 1</a></li>
+          <li><a href="#">Opțiunea 2</a></li>
+          <li><a href="#">Opțiunea 3</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <br><br><br><br><br><br><br><br><br><br>
+
+    <!-- Imagini defilante -->
+    <div class="scrollable-images">
+      <img src="https://images.wallpaperscraft.ru/image/single/karty_kombinatsiia_chernyj_192979_3840x2400.jpg" alt="Imagine 1">
+      <img src="https://images.wallpaperscraft.ru/image/single/shahmaty_figury_chernobelyj_868183_1024x600.jpg" alt="Imagine 2">
+      <img src="https://images.wallpaperscraft.ru/image/single/kubik_rubika_kubik_grani_913047_1024x600.jpg" alt="Imagine 3">
+    </div>
+
+    <!--
+         Secțiunea goală div pentru afișarea
+         timpului cu identificatorul clock
+    -->
+    <div id="clock"></div>
+
+    <div id="mesaj_timeout"></div>
+
+    <!--
+         Butoane care execută la click anumite funcții
+         folosind handler-ul de event-uri onClick
+    -->
+    <button class="cst-btns" onclick="delayMessage()">Afișează mesaj după un timp specificat</button>
+    <button class="cst-btns" onclick="cancelMessage()">Anulează afișarea mesajului</button>
+
+    <!--
+         Am utilizat comentariile HTML și JS pentru a evita
+         ignorarea tag-ului script de către browser-ele mai vechi
+    -->
+    <script>
+    <!--
+      // Funcția de afișare a meniului derulant
+      function toggleDropdown() {
+        document.getElementById("myDropdown").classList.toggle("show");
+      }
+
+      // Afișarea timpului în timp real
+      function displayTime() {
+	// Obiect de tip Date cu data/timp curent
+        var now = new Date();
+	// Extragem anul
+	var year = now.getFullYear();
+	// Extragem luna
+	var month = now.getMonth()+1;
+	// Extragem ziua
+        var day = now.getDate();
+	// Extragem ora
+        var hours = now.getHours();
+	// Extragem minutele
+        var minutes = now.getMinutes();
+	// Extragem secundele
+        var seconds = now.getSeconds();
+        document.getElementById('clock').innerHTML = "&nbsp;" + day + "/" + month + "/" + year + " " + hours + ":" + minutes + ":" + seconds;
+	// Actualizăm stilurile elementului HTML în JavaScript
+	document.getElementById('clock').style.fontSize = "72px";
+	// Setăm culoarea textului în funcție de ora din zi
+    	if(hours<12) {
+          document.getElementById('clock').style.color = "blue"; // Text albastru pentru orele dimineții
+    	} else {
+          document.getElementById('clock').style.color = "red"; // Text roșu pentru orele după-amiezii
+    	}
+      }
+      // Am stabilit actualizarea fiecare secundă (la un interval de 1000 milisecunde)
+      setInterval(displayTime, 1000);
+
+      // Variabile globale (in JS nu se specifica tipul)
+      var timeoutID;
+      var delayTime;
+
+      // Afișează un mesaj după o întârziere de x secunde
+      function showMessage() {
+	var msg = "Acesta este un mesaj afișat după o întârziere de " + delayTime + " secunde.";
+        document.getElementById("mesaj_timeout").innerHTML = msg;
+      }
+
+      // Afișăm mesajul (realizăm apelul funcției) după un delay de un anumit interval
+      function delayMessage() {
+        delayTime = prompt("Introduceți timpul de întârziere (în secunde):");
+	// Operator ce consideră valorile inegale dacă au tipuri diferite
+        if(delayTime === null || delayTime === "") {
+          alert("Nu s-a introdus niciun timp de întârziere!");
+          return;
+        }
+        delayTime = parseInt(delayTime);
+        if(isNaN(delayTime) || delayTime < 0) {
+          alert("Introduceți un timp de întârziere valid!");
+          return;
+        }
+	document.getElementById("mesaj_timeout").innerHTML = "";
+	// Convertim secundele în milisecunde
+        timeoutID = setTimeout(showMessage, delayTime*1000);
+      }
+
+      // Anulăm afișarea mesajului (dacă avem mult de așteptat)
+      function cancelMessage() {
+	// Declarăm o variabilă booleană căreia i-am atribuit un dialog de confirmare
+        var confirmCancel = confirm("Sunteți sigur că doriți să anulați afișarea mesajului de întârziere?");
+        // Dacă am apăsat butonul OK și s-a returnat true
+	if(confirmCancel) {
+          clearTimeout(timeoutID);
+	  document.getElementById("mesaj_timeout").innerHTML = "";
+          alert("Afișarea mesajului de întârziere a fost anulată cu succes.");
+        }
+      }
+
+      /*
+         Funcție pentru validarea câmpurilor de
+         introducere înainte de a trimite formularul
+      */
+      function validareFormular() {
+	// Salvăm datele în variabilele corespunzătoare
+        // extrăgându-le cu proprietatea value din tabloul
+        // de obiecte de tip Form ce reprezintă formularele
+        // obiectului de tip document. Căutarea formei necesare
+        // a avut loc după nume
+        var nume = document.forms["formular1"]["nume"].value;
+        var email = document.forms["formular1"]["email"].value;
+        var telefon = document.forms["formular1"]["telefon"].value;
+        var mesaj = document.forms["formular1"]["mesaj"].value;
+
+	// Validare nume
+  	var numePattern = /^[a-zA-Z]+(([ ][a-zA-Z ])?[a-zA-Z]*)*$/;
+        if(nume=="") {
+          alert("Câmpul numelui trebuie completat!");
+          return false;
+        }
+        if(!numePattern.test(nume)) {
+          alert("Introduceți vă rog un nume valid (fără cifre sau simboluri speciale)!");
+          return false;
+        }
+
+        // Validare adresă de email
+        if(email=="") {
+          alert("Câmpul adresei de e-mail trebuie completat!");
+          return false;
+        }
+	// Stabilim un fel de RegEx căruia trebuie să corespundă
+        var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if(!emailPattern.test(email)) {
+          alert("Adresa de e-mail introdusă este invalidă!");
+          return false;
+        }
+
+        // Validare număr de telefon (expresie regulată)
+        var telefonPattern = /^\d{9}$/;
+        if(telefon=="") {
+          alert("Câmpul numărului de telefon trebuie completat!");
+          return false;
+        }
+        if(!telefonPattern.test(telefon)) {
+          alert("Introduceți vă rog un număr de telefon valid (9 cifre)!");
+          return false;
+        }
+
+        // Validare mesaj
+        if(mesaj=="") {
+          alert("Câmpul mesajului trebuie completat obligatoriu!");
+          return false;
+        }
+	// Funcția length pentru string
+        if(mesaj.length<10) {
+          alert("Mesajul trebuie să conțină cel puțin 10 caractere!");
+          return false;
+        }
+
+        // Dacă toate câmpurile sunt validate formularul poate fi trimis
+	alert("Datele tuturor câmpurilor formularului au fost validate cu succes!");
+        return true;
+    }
+    //-->
+    </script>
+
+    <!-- Formular pentru validare cu handler-ul eventului onSubmit-->
+    <form name="formular1" onsubmit="return validareFormular()">
+      <label for="nume">Nume:</label>
+      <input type="text" name="nume" placeholder="Introduceți numele" required><br><br>
+  
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Introduceți e-mailul" required><br><br>
+
+      <label for="telefon">Telefon:</label>
+      <input type="tel" id="telefon" name="telefon" placeholder="Introduceți telefonul" pattern="[0-9]{9}" required><br><br>
+
+      <label for="message">Mesaj:</label><br>
+      <textarea id="mesaj" name="mesaj" rows="4" cols="50" placeholder="Introduceți mesajul aici..." required></textarea><br><br>
+
+      <input type="submit" value="Submite">
+    </form>
+
+  </body>
+</html>

@@ -1,0 +1,235 @@
+﻿/* Stilul secțiunii corpului */
+body {
+    /* Lista cu familiile de font-uri */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    /* Culoarea fundalului */
+    background-color: #f0f0f0;
+}
+
+/* Stilul containerului */
+.container {
+    /* Lățimea maximă */
+    max-width: 800px;
+    /* Spațiu din părți */
+    margin: 20px auto;
+    /* Spațiu între conținut */
+    padding: 20px;
+    /* Culoarea fundalului */
+    background-color: #fff;
+    /* Colțuri rotungite */
+    border-radius: 8px;
+    /* Umbră */
+    box-shadow: 0 0 10px #0000001a;
+}
+
+/* Stilurile meniului derulant */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Conținutul derulant */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    /* Culoarea fundalului */
+    background-color: #fff;
+    /* Lățimea minimă */
+    min-width: 160px;
+    /* Umbră */
+    box-shadow: 0 8px 16px 0 #000033;
+    z-index: 1;
+    /* Colțuri rotungite */
+    border-radius: 8px;
+    /* Spațiu între conținut */
+    padding: 10px 0;
+}
+
+/* Lista din conținut */
+.dropdown-content ul {
+    /* Lipsa unui marker */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Ancora elementului listei */
+.dropdown-content ul li a {
+    display: block;
+    /* Spațiu între conținut */
+    padding: 10px 20px;
+    /* Culoarea textului */
+    color: #333;
+    text-decoration: none;
+    /* Tranziție lină */
+    transition: background-color 0.3s;
+}
+
+/* Când mouse-ul e deasupra elementului */
+.dropdown-content ul li a:hover {
+    /* Schimbă culoarea fundalului */
+    background-color: #f9f9f9;
+}
+
+/* Când mouse-ul e deasupra conținutului derulant */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Stilul butonului meniului derulant */
+.dropbtn {
+    /* Culorea fundalului */
+    background-color: #4CAF50;
+    /* Culorea textului */
+    color: white;
+    padding: 10px 20px;
+    /* Dimensiunile font-ului */
+    font-size: 16px;
+    /* Fără margine */
+    border: none;
+    /* Colțuri rotungite */
+    border-radius: 8px;
+    /* Schimbarea cursorului mouse-ului */
+    cursor: pointer;
+    /* Tranziție lină */
+    transition: background-color 0.3s;
+}
+
+/* Când mouse-ul e deasupra butonului */
+.dropbtn:hover {
+    /* Schimbă culoarea fundalului */
+    background-color: #45a049;
+}
+
+/* Stilurile imaginilor defilante */
+.scrollable-images {
+    /* Lățimea în procente */
+    width: 40%;
+    /* Spațiu din stânga */
+    margin-left: 25px;
+    overflow-x: auto;
+    white-space: nowrap;
+    /* Spațiu de sus */
+    margin-bottom: 20px;
+}
+
+.scrollable-images img {
+    /* Lățimea unei imagini concrete */
+    width: 300px;
+    /* Înălțime automată */
+    height: auto;
+    display: inline-block;
+    /* Spațiu din dreapta */
+    margin-right: 10px;
+    /* Colțuri rotungite */
+    border-radius: 8px;
+    /* Umbră */
+    box-shadow: 0 2px 4px #0000001a;
+}
+
+/* Stilul formularului */
+form {
+    /* Lățimea */
+    width: 500px;
+    /* Spațiu din toate 4 direcții */
+    margin: 20px 20px 20px 20px;
+    /* Culoarea fundalului */
+    background-color: #f9f9f9;
+    /* Spațiu între conținut */
+    padding: 20px;
+    /* Colțuri rotungite */
+    border-radius: 8px;
+    /* Umbră */
+    box-shadow: 0 2px 4px #0000001a;
+}
+
+/* Etichetele formularului */
+label {
+    display: block;
+    /* Spațiu de sus */
+    margin-bottom: 5px;
+    /* Text îngroșat */
+    font-weight: bold;
+}
+
+/* Câmpurile formularului */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    /* Lățimea */
+    width: 90%;
+    /* Spațiu între conținut */
+    padding: 10px;
+    /* Spațiu de sus */
+    margin-bottom: 10px;
+    /* Grosimea și culoarea marginii */
+    border: 1px solid #ccc;
+    /* Colțuri rotungite */
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Butonul de confirmare */
+input[type="submit"] {
+    /* Culoarea fundalului */
+    background-color: #4caf50;
+    /* Culoarea textului */
+    color: #fff;
+    /* Spațiu între conținut */
+    padding: 10px 20px;
+    /* Lipsă margine */
+    border: none;
+    /* Colțuri rotungite */
+    border-radius: 5px;
+    /* Schimbarea cursorului mouse-ului */
+    cursor: pointer;
+    /* Dimensiunea font-ului */
+    font-size: 16px;
+}
+
+/* Când mouse-ul e deasupra butonului */
+input[type="submit"]:hover {
+    /* Schimbă culoarea fundalului */
+    background-color: #45a049;
+}
+
+/* Pentru referire la un id folosim # */
+#mesaj_timeout {
+    /* Spațiu din stânga */
+    margin-left: 12px;
+    /* Dimensiunea font-ului */
+    font-size: 24px;
+    /* Culoarea textului */
+    color: #900;
+    /* Spațiu de sus */
+    margin-top: 10px;
+}
+
+/* Butoanele pentru dată/timp */
+.cst-btns {
+    /* Spațiu din toate 4 direcții */
+    margin: 20px 20px 20px 20px;
+    /* Culoarea fundalului */
+    background-color: #4caf50;
+    /* Culoarea text-ului */
+    color: #fff;
+    /* Spațiu între conținut */
+    padding: 10px 20px;
+    /* Fără margine */
+    border: none;
+    /* Colțuri rotungite */
+    border-radius: 5px;
+    /* Schimbarea cursorului mouse-ului */
+    cursor: pointer;
+    /* Dimensiunea font-ului */
+    font-size: 16px;
+}
+
+/* Când mouse-ul e deasupra butonului */
+.cst-btns:hover {
+    /* Schimbă culoarea fundalului */
+    background-color: #45a049;
+}
