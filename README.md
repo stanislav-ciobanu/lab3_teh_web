@@ -50,8 +50,6 @@ Obiect `Date` actualizat la fiecare secundă prin `setInterval(displayTime, 1000
 - `delayMessage()` — solicită un interval (secunde) prin `prompt()`, validează input-ul cu `parseInt` și `isNaN`, apoi apelează `setTimeout`.  
 - `cancelMessage()` — anulează timeout-ul activ prin `clearTimeout` după confirmare.
 
-![Ferestre de dialog](screenshots/dialogs.jpg)
-
 ---
 
 ### 5. Validarea formularului (`onSubmit`)
