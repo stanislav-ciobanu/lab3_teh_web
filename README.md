@@ -1,91 +1,90 @@
-# Lucrare de Laborator Nr. 3 — Tehnologii Web
+# Laboratory Work No. 3 — Web Technologies
 
-**Tema:** Crearea elementelor dinamice JavaScript și verificarea formularelor  
-**Student:** Ciobanu Stanislav, gr. CR-221fr  
-**Profesor:** lect. univ. Rusu Viorel  
-**An:** 2024 | Facultatea Calculatoare, Informatică și Microelectronică, UTM
-
----
-
-## 📋 Descriere
-
-Introducere practică în JavaScript client-side: manipularea DOM-ului, gestionarea evenimentelor și validarea formularelor. Proiectul conține o pagină HTML cu mai multe funcționalități interactive implementate exclusiv în JS și CSS, fără biblioteci externe.
+**Topic:** Creating dynamic JavaScript elements and form validation  
+**Student:** Ciobanu Stanislav, group CR-221fr  
+**Professor:** Lect. Univ. Rusu Viorel  
+**Year:** 2024 | Faculty of Computers, Informatics and Microelectronics, TUM
 
 ---
 
-## 🗂️ Structura proiectului
+## 📋 Description
+
+Practical introduction to client-side JavaScript: DOM manipulation, event handling, and form validation.  
+
+The project consists of an HTML page with multiple interactive features implemented exclusively using JavaScript and CSS, without external libraries.
+
+---
+
+## 🗂️ Project Structure
 
 ```
 exemplu_JS/
-├── index.html   # Pagina principală cu codul JS inline
-└── style.css    # Stilurile CSS pentru toate componentele
+├── index.html # Main page with inline JS code
+└── style.css # CSS styles for all components
 ```
 
 ---
 
-## ✨ Funcționalități implementate
+## ✨ Implemented Features
 
-### 1. Meniu derulant (Dropdown)
-Buton cu handler `onClick` ce apelează `toggleDropdown()` — afișează/ascunde meniul. Stilizare cu hover și tranziții CSS.
+### 1. Dropdown Menu
+Button with an `onClick` handler that calls `toggleDropdown()` — shows/hides the menu. Styled using CSS hover effects and transitions.
 
-![Meniu derulant](screenshots/dropdown.png)
-
----
-
-### 2. Imagini defilante
-Secțiune cu scroll orizontal (`overflow-x: auto`) ce afișează 3 imagini încărcate via CDN, cu lățime fixă de 300px fiecare.
+![Dropdown Menu](screenshots/dropdown.png)
 
 ---
 
-### 3. Ceas în timp real
-Obiect `Date` actualizat la fiecare secundă prin `setInterval(displayTime, 1000)`.  
-- Text **albastru** dimineața (`hours < 12`)  
-- Text **roșu** după-amiaza
-
-![Ceas în timp real](screenshots/clock.jpg)
+### 2. Horizontal Image Scroll
+Section with horizontal scrolling (`overflow-x: auto`) displaying 3 images loaded via CDN, each with a fixed width of 300px.
 
 ---
 
-### 4. Mesaj cu întârziere (`setTimeout` / `clearTimeout`)
-- `delayMessage()` — solicită un interval (secunde) prin `prompt()`, validează input-ul cu `parseInt` și `isNaN`, apoi apelează `setTimeout`.  
-- `cancelMessage()` — anulează timeout-ul activ prin `clearTimeout` după confirmare.
+### 3. Real-Time Clock
+`Date` object updated every second using `setInterval(displayTime, 1000)`.  
+- **Blue text** in the morning (`hours < 12`)  
+- **Red text** in the afternoon  
+
+![Real-Time Clock](screenshots/clock.jpg)
 
 ---
 
-### 5. Validarea formularului (`onSubmit`)
-Funcția `validareFormular()` verifică câmpurile înainte de trimitere și returnează `true`/`false`:
+### 4. Delayed Message (`setTimeout` / `clearTimeout`)
+- `delayMessage()` — requests a delay (in seconds) via `prompt()`, validates input using `parseInt` and `isNaN`, then calls `setTimeout`.  
+- `cancelMessage()` — cancels the active timeout using `clearTimeout` after confirmation.
 
-| Câmp | Regulă de validare |
+---
+
+### 5. Form Validation (`onSubmit`)
+The function `validateForm()` checks fields before submission and returns `true`/`false`:
+
+| Field | Validation Rule |
 |---|---|
-| Nume | Doar litere și spații (regex `/^[a-zA-Z]+...$/`) |
-| Email | Format valid cu `@` și domeniu (regex) |
-| Telefon | Exact 9 cifre (regex `/^\d{9}$/`) |
-| Mesaj | Minim 10 caractere |
+| Name | Letters and spaces only (regex `/^[a-zA-Z]+...$/`) |
+| Email | Valid format with `@` and domain (regex) |
+| Phone | Exactly 9 digits (regex `/^\d{9}$/`) |
+| Message | Minimum 10 characters |
 
-![Formular](screenshots/form.jpg)
+![Form](screenshots/form.jpg)
 
-![Validare erori](screenshots/validation.jpg)
-
----
-
-## 🛠️ Tehnologii utilizate
-
-- **HTML5** — structura paginii, atribute `required` și `pattern`
-- **CSS3** — stilizare, tranziții, hover, `overflow-x`
-- **JavaScript (ES5)** — DOM API, events, `setTimeout`, `setInterval`, `clearTimeout`, RegEx
+![Validation Errors](screenshots/validation.jpg)
 
 ---
 
-## 🚀 Rulare
+## 🛠️ Technologies Used
 
-Nu este nevoie de server sau dependențe. Deschide direct în browser:
+- **HTML5** — page structure, `required` and `pattern` attributes  
+- **CSS3** — styling, transitions, hover effects, `overflow-x`  
+- **JavaScript (ES5)** — DOM API, events, `setTimeout`, `setInterval`, `clearTimeout`, RegEx  
+
+---
+
+## 🚀 Run
+
+No server or dependencies required. Open directly in your browser:
 
 ```bash
-# Clonează repo-ul
+# Clone the repository
 git clone <url-repo>
 
-# Deschide pagina
+# Open the page
 open exemplu_JS/index.html
-```
-
-> **Notă:** Imaginile sunt încărcate din CDN extern — este necesară conexiune la internet pentru afișarea lor.
