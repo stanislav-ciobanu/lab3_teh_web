@@ -28,7 +28,7 @@ exemplu_JS/
 ### 1. Meniu derulant (Dropdown)
 Buton cu handler `onClick` ce apelează `toggleDropdown()` — afișează/ascunde meniul. Stilizare cu hover și tranziții CSS.
 
-![Meniu derulant](screenshots/dropdown.jpg)
+![Meniu derulant](screenshots/dropdown.png)
 
 ---
 
